@@ -1,0 +1,2 @@
+mass	18	7714	1721	20030205	S44	R	457	R	M    InvasiveDuctal
+mass	282	4268	1633	20010810	S5	R	436	R	B    BenignTissue
