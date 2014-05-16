@@ -1,0 +1,48 @@
+mass	6020	8161	1134	20091009	S600	R	193	R	    #caseID=68  massB cascade:yes oneshot:no *** 
+mass	6029	8259	1149	20091016	S600	R	204	R	  #caseID=72 massB cascade:no oneshot:no ***
+
+nonmass	6038	7311	10442	20090814	S600	R	215	L   #caseID=240 nonmassB cascade:yes oneshot:no ***
+nonmass	6050	11674	10449	20100515	S900	R	232	R     #caseID=243 nonmassB cascade:yes oneshot:no ***
+
+nonmass	556	13769	10064	20060109	S4     L	26    L   #caseID=249 nonmassM cascade:yes oneshot:no ***
+
+# for plotting
+
+
+mass	6020	8161	1134	20091009	S600	R	193	R	    #caseID=68  massB cascade:yes oneshot:no ***  
+mass	863	6232	1413	20090602	S600	L	373	L         #caseID=153 massM cascade:no oneshot:yes  
+mass	860	7091	1409	20090730	S600	R	370	R	   #caseID=58  massB cascade:no oneshot:yes 
+mass	764	8458	1310	20091029	S600	R	310	R	   #caseID=117 massM cascade:no oneshot:yes 
+mass	714	12545	1294	20100709	S800	L	302	L	  #caseID=104 massM cascade:no oneshot:yes 
+mass	679	6384	1212	20090612	S700	R	246	R	   #caseID=17 massB cascade:no oneshot:no *
+mass	710	11884	1246	20100529	S800	L	270	L	  #caseID=21 massB cascade:no oneshot:no *
+mass	6029	8259	1149	20091016	S600	R	204	R	  #caseID=72 massB cascade:no oneshot:no *
+## mass cases: unique(class_cascade_C$caseID) n=17, correct: cascade=0.5671642, oneshot=0.6865672
+## "151" "171" "68"  "17"  "21"  "105" "153" "89"  "58"  "99"  "146" "72"  "183" "86"  "117" "166" "104"
+
+nonmass	6038	7311	10442	20090814	S600	R	215	L   #caseID=240 nonmassB cascade:yes oneshot:no ***
+nonmass	556	13769	10064	20060109	S4     L	26    L   #caseID=249 nonmassM cascade:yes oneshot:no ***
+nonmass	850	13610	10543	20100923	S800	R	398	R   #caseID=226 nonmassB cascade:yes oneshot:no ***
+nonmass	880	5174	10529	20090321	S600	R	377	R    #caseID=231 nonmassB cascade:yes oneshot:no ***
+nonmass	6043	11249	10445	20100417	S700	R	221	R    #caseID=242 nonmassB cascade:yes oneshot:no ***
+nonmass	6050	11674	10449	20100515	S900	R	232	R     #caseID=243 nonmassB cascade:yes oneshot:no ***
+nonmass	6022	73410	10429	20090816	S600	R	195	L  #caseID=281 nonmassM cascade:yes oneshot:no ***
+nonmass	775	14616	10499	20101125	S800	L	314	L   #caseID=219 nonmassB cascade:no oneshot:no *
+nonmass	6040	7858	10444	20090921	S600	L	218	L   #caseID=241 nonmassB cascade:no oneshot:no *
+nonmass	706	5251	10462	20090327	S800	R	264	L    #caseID=207 nonmassB cascade:no oneshot:no *
+nonmass	813	13464	10517	20100914	S800	L	339	L    #caseID=225 nonmassB cascade:no oneshot:no *
+nonmass	775	14616	10500	20101125	S800	L	314	L	#caseID=220 nonmassB cascade:no oneshot:no *
+nonmass	6005	7660	10422	20090908	S600	R	177	R   #caseID=276 nonmassM cascade:no oneshot:yes
+nonmass	827	6402	10540	20090613	S600	R	394	B    #caseID=264 nonmassM cascade:no oneshot:yes
+nonmass	831	70	10542	20080413	S600	R	396	R     #caseID=265 nonmassM cascade:no oneshot:yes
+nonmass	713	9170	10466	20091211	S800	L	272	L    #caseID=252 nonmassM cascade:no oneshot:yes
+nonmass	340	5783	10358	20020328	S4	R	157	R      #caseID=203 nonmassB cascade:no oneshot:yes
+
+## non-mass  unique(class_oneshot_NC$caseID) n=29, correct: cascade=0.6216216, oneshot=0.5045045
+## "234" "221" "219" "245" "241" "287" "240" "275" "249" "250" "276" "207" "225" "254" "226" "264" "263" "206"
+## "231" "246" "265" "247" "242" "243" "281" "252" "204" "220" "203"
+
+########## overall correct cascade=0.6011236, oneshot=0.5730337
+mass	18	7714	1721	20030205	S44	R	457	R	M    InvasiveDuctal
+mass	282	4268	1633	20010810	S5	R	436	R	B    BenignTissue
+## mass malignant vs. benign

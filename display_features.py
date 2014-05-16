@@ -29,6 +29,7 @@ from features_texture import *
 
 # Open filename list
 file_ids = open(sys.argv[1],"r")
+
 for fileline in file_ids:
     # Get the line: StudyNumber    DicomExamNumber    MRN    chosen_lesions_id    StudyDate    SeriesID    image_pos_pat    image_ori_pat
     fileline = fileline.split()
@@ -38,11 +39,14 @@ for fileline in file_ids:
     Lesions_id = fileline[3]
     dateID = fileline[4]
     SeriesID = fileline[5] # corresponds to dynamic sequence;
+    caseLabel=cond+fileline[9]+'_'+fileline[10]
     
     ###### Loading 
     print "Start by loading volumes..."
     # Get Root folder ( the directory of the script being run)
     path_rootFolder = 'Z:\\Cristina\\MassNonmass\\mass'
+    path_outputFolder ="Z:\Cristina\MassNonmass\codeProject\codeBase\display_features"         
+    
     load = Inputs_init()
     [series_path, phases_series, lesionID_path] = load.readVolumes(path_rootFolder, StudyID, DicomExamNumber, SeriesID, Lesions_id)
     print "Path to series location: %s" % series_path 
@@ -55,19 +59,16 @@ for fileline in file_ids:
     print "Number of points: %d" % int(lesion3D.GetNumberOfPoints())
     print "Number of cells: %d" % int(lesion3D.GetNumberOfCells())
     
-    print "\n Visualize in sub volumes..."
-    loadDisplay = Display()
-    lesion3D_mesh = loadDisplay.addSegment(lesion3D)
-    loadDisplay.visualize(load.DICOMImages, load.image_pos_pat, load.image_ori_pat, sub=True, postS=1, interact=True)
-
     ###### Extract Dynamic features
-    print "\n Visualize certain features maps..."
-        
-    VOIbounds = load.lesion3D_mesh.GetBounds()
-    print "VOI boundas: %d, %d, %d, %d, %d, %d" % VOIbounds
+    print "\n Visualize certain features maps... Extract VOI data first... "
     fmaps = Maps() 
-    img_feature = fmaps.featuremap_beta(load.DICOMImages, series_path, phases_series, load.image_pos_pat, load.image_ori_pat, VOIbounds, features=['beta'])
+    [img_features, time_points] = fmaps.getVOIdata(load.DICOMImages, series_path, phases_series, load.image_pos_pat, load.image_ori_pat, load.spacing, lesion3D, path_outputFolder, caseLabel)
     
+    # extract feature maps and Visualize each one
+    fmaps.featureMap(load.DICOMImages, img_features, time_points, ['beta','Tpeak','Kpeak'], caseLabel,  path_outputFolder)
+    fmaps.renderer1.Render()
+    fmaps.renWin1.Finalize()
+
     
     
     
